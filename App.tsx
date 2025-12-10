@@ -35,7 +35,7 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const TOKEN_KEY = 'userToken';
-const API_URL = 'http://10.0.2.2:3000';
+const API_URL = 'https://postscarlatinoid-untranquilly-cristobal.ngrok-free.dev';
 
 function App() {
   const [userToken, setUserToken] = useState<string | null>(null);

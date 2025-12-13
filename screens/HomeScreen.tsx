@@ -17,7 +17,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useAuth } from '../App';
+// import { useAuth } from '../App';
 
 import Geolocation, {
   GeolocationResponse,
@@ -78,7 +78,7 @@ const requestLocationPermission = async (): Promise<boolean> => {
 };
 
 function HomeScreen() {
-  const { signOut } = useAuth();
+  // const { signOut } = useAuth();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -96,9 +96,9 @@ function HomeScreen() {
   const [input, setInput] = useState('');
   const [isLocating, setIsLocating] = useState(false);
 
-  const LogOut = () => {
-    signOut();
-  };
+  // const LogOut = () => {
+  //   signOut();
+  // };
 
   const addMessage = (msg: Omit<Message, 'id'>) => {
     setMessages(prev => [...prev, { id: Date.now().toString(), ...msg }]);
@@ -175,10 +175,8 @@ function HomeScreen() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 15000,
+        timeout: 60000,
         maximumAge: 10000,
-        // @ts-ignore
-        forceRequestLocation: true,
         // @ts-ignore
         showLocationDialog: true,
       },
@@ -270,9 +268,9 @@ function HomeScreen() {
                 </View>
               </View>
 
-              <TouchableOpacity style={styles.logoutButton} onPress={LogOut}>
+              {/* <TouchableOpacity style={styles.logoutButton} onPress={LogOut}>
                 <Text style={styles.logoutText}>Logout</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
 
             <FlatList
